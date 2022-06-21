@@ -30,7 +30,7 @@ declare global {
      * @global
      * Check if the platform is AIX.
      */
-    export function isPlatformAIX(): boolean;
+    function isPlatformAIX(): boolean;
 
     /**
      * @global
@@ -66,13 +66,13 @@ declare global {
      * @global
      * Check if the platform is SunOS.
      */
-    export function isPlatformSunOS(): boolean;
+    function isPlatformSunOS(): boolean;
 
     /**
      * @global
      * Check if the platform is Windows.
      */
-    export function isPlatformWindows(): boolean;
+    function isPlatformWindows(): boolean;
 }
 
 // #ENDREGION Declarations. ///////////////////////////////////////////////////
