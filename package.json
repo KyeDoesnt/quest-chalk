@@ -1,0 +1,39 @@
+{
+  "name": "quest-chalk",
+  "productName": "Chalk for Quest",
+  "version": "0.0.0",
+  "description": "The QuestChalk control application.",
+  "main": "./dist/app.js",
+  "scripts": {
+    "build": "tsc && electron .",
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KyeDoesnt/quest-chalk.git"
+  },
+  "keywords": [
+    "oculus",
+    "quest"
+  ],
+  "author": "Kye Cedar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/KyeDoesnt/quest-chalk/issues"
+  },
+  "homepage": "https://github.com/KyeDoesnt/quest-chalk#readme",
+  "devDependencies": {
+    "@types/electron": "^1.6.10",
+    "@types/node": "^18.0.0",
+    "electron-builder": "^23.0.3",
+    "nodemon": "^2.0.16",
+    "ts-loader": "^9.3.0",
+    "ts-node": "^10.8.1"
+  },
+  "dependencies": {
+    "@electron/remote": "^2.0.8",
+    "electron": "^19.0.5",
+    "express": "^4.18.1",
+    "typescript": "^4.7.4"
+  }
+}
