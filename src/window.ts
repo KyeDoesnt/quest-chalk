@@ -20,7 +20,7 @@ const min_window_size: Dimensions = {
 
 // #REGION // Declaration. ////////////////////////////////////////////////////
 
-import { screen, BrowserWindow, BrowserWindowConstructorOptions, Display } from 'electron';
+import { screen, BrowserWindow, BrowserWindowConstructorOptions, Display, nativeImage } from 'electron';
 
 const path = require('path');
 const os   = require('os');
@@ -76,9 +76,25 @@ export class Window {
     }
 
     public createWindow(): void {
+        let icon_path: string = path.join(__srcdir, 'assets', 'icon.png');
+
+        switch(getPlatform()) {
+            case 'win32':
+                icon_path = path.join(__srcdir, 'assets', 'icon48.ico');
+                break;
+            case 'darwin':
+                icon_path = '';
+                break;
+        }
+
         const options: BrowserWindowConstructorOptions = {
             title : 'Chalk for Quest',
-            icon  : isPlatformLinux() ? path.join(__srcdir, 'assets', 'icon.png') : undefined,
+            icon  : isPlatformLinux() ? icon_path : undefined,
+
+            autoHideMenuBar: true,
+            show: false,
+            // TODO : Create borderless window display.
+            // frame : false,
 
             // TODO : Get display with lastDisplay and center the window in the display.
             x : 20,
@@ -86,8 +102,6 @@ export class Window {
 
             width  : default_window_state.width,
             height : default_window_state.height,
-            // TODO : Create borderless window display.
-            // frame : false,
             minWidth  : min_window_size.width,
             minHeight : min_window_size.height,
 
@@ -98,6 +112,8 @@ export class Window {
         };
 
         this._window = new BrowserWindow(options);
+
+        // this._window.setIcon(icon_path);
 
         // Show window, if not already shown.
         if(!this._window.isVisible()) this._window.show();
@@ -111,6 +127,8 @@ export class Window {
                 this._window.close();
             }
         });
+
+        this._window.on('ready-to-show', this._window.show);
     }
 
 

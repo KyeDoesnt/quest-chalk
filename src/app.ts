@@ -56,6 +56,7 @@ import { Window } from './window';
 
 // // Defining utility functions.
 import './util';
+import { BrowserWindow } from 'electron';
 
 
 
@@ -65,18 +66,25 @@ declare global {
      * @global
      * Get source directory.
      */
-    function __srcdir(): string;
+    var __srcdir: string;
 }
 
 // Get the source directory.
-var current_dir = __dirname + '';
-global.__srcdir = (): string => { return current_dir; };
+global.__srcdir = __dirname + '';
 
 
 
 
-let appWindow: Window;
+let win: Window;
 
 app.on('ready', () => {
-    appWindow = new Window();
+    win = new Window();
+});
+
+app.on('window-all-closed', () => {
+    if(!isPlatformDarwin()) app.quit();
+});
+
+app.on('activate', () => {
+    if(BrowserWindow.getAllWindows().length === 0) win.createWindow();
 });
