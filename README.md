@@ -1,2 +1,2 @@
-# Chalk for the Oculus Quest
-The QuestChalk control application.
+# Chalk for Quest
+The Chalk control application.
