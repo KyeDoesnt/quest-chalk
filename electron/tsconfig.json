@@ -1,0 +1,26 @@
+{
+    "compilerOptions": {
+        "skipLibCheck": true,
+        "target": "es6",
+        "lib": [
+          "dom",
+          "dom.iterable",
+          "esnext"
+        ],
+        "allowJs": true,
+        "module": "CommonJS",
+        "noImplicitAny": true,
+        "sourceMap": true,
+        "outDir": "./../build",
+        "baseUrl": ".",
+        "paths": {
+            "*": ["node_modules/*"]
+        }
+    },
+    "exclude": [
+        "node_modules", "**/*.spec.ts"
+    ],
+    "include": [
+        "**/*"
+    ]
+}
