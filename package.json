@@ -5,7 +5,8 @@
   "description": "The QuestChalk control application.",
   "main": "./dist/app.js",
   "scripts": {
-    "build": "tsc && electron .",
+    "dev": "tsc && electron .",
+    "build": "tsc",
     "start": "electron ."
   },
   "repository": {
